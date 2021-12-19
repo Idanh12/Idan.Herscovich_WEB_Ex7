@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="static/CV.css">
+    <meta charset="UTF-8">
+    <title>CV Ex6</title>
+    <script src="static/CV.js"></script>
+
+</head>
+
+<body id="body">
+    <div id="container">
+        <div id="Links">
+            <a href="cv- idan hershcovich.pdf" download>
+                <h3>Download PDF</h3>
+            </a>
+            <a href="https://www.linkedin.com/in/idan-hershcovich-079a411b6/">
+                <img src="/static/images/in.png" alt="linkedin" width="50" height="50"/>
+            </a>
+            <h3><a href="/block">assignment 8</a></h3>
+        </div>
+        <div id="header">
+            <button onclick="print_my_name()">Want to know my name?</button>
+            <h1 class="intro" id="name"></h1>
+            <h3 class="intro">0524348751</h3>
+            <h3 class="intro">idanh12@gmail.com</h3>
+        </div>
+
+        <div id="Education">
+            <h2>Education</h2>
+            <h3>Industrial engineering and management | Ben Gurion University | 2018-Present</h3>
+            <h4><span>&#183;</span> Specializing in intelligent systems.</h4>
+            <h3>Matriculation certificate | Irony H High School, Haifa | 2008-2011</h3>
+            <h4><span>&#183;</span> Majority in Math, English, Physics and Economy.</h4>
+        </div>
+        <div id="Experience">
+            <h2>Experience</h2>
+            <h3>Support engieneer | Optibus | 2020-Present</h3>
+            <h4><span>&#183;</span> Specializing in intelligent systems.</h4>
+            <h3>MILITARY SRVICE | Submarine Squadron, Israeli Navy | 2011 � 2016 </h3>
+            <h4><span>&#183;</span> Combat fighter at the Technical Platoon.</h4>
+            <h4><span>&#183;</span> certified as Machinery Team leader. And as instructor at the naval academy.</h4>
+            <h4><span>&#183;</span> Finished service with Sergeant Major ranking.</h4>
+
+        </div>
+        <div id="Skills">
+            <h2>Skills</h2>
+            <h2>Java <br />python <br /> HTML</h2>
+        </div>
+        <div id="Languages">
+            <h2 id="headerLan">Languages</h2>
+            <h3 id="bodyLan"><span>&#183;</span>  Hebrew (native) <br /><span>&#183;</span> English (fluent)</h3>
+        </div>
+        <div class="contact_us">
+            <h3>Don't call us we will call you</h3>
+            <form id="Contact us form" onSubmit="return vaidate_form(this)">
+                <label for="email">Email</label>
+                <input id="email" type="email">
+                <br />
+                <label for="Message">Message</label>
+                <textarea id="Message" cols="20" rows="5"></textarea>
+                <br>
+                <label for="mobile">mobile number</label>
+                <input id="mobile" ></input>
+                <br>
+                <input class="submit" type="submit" id="submit" value="Submit" >
+            </form>
+
+        </div>
+        <div id="robot check">
+        </div>
+    </div>
+
+</body>
+</html>

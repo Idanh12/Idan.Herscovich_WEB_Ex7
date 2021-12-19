@@ -1,19 +1,16 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, render_template
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():  # put application's code here
-    return redirect('/about')
+def home_page():  # put application's code here
+    return render_template('cv.html')
 
-@app.route('/about')
+
+@app.route('/block')
 def about_func():
-    return redirect(url_for('categories_func'))
-
-@app.route('/categories')
-def categories_func():
-    return 'Here you will see the categories'
+    return render_template('block.html', name_of_class="web", degree='BSc', admin=True, Languages=['hebrew (native)', 'English (fluent)'])
 
 
 if __name__ == '__main__':

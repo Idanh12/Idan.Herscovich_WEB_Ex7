@@ -1,0 +1,27 @@
+{% extends 'assignment8.html' %}
+
+{% block title %}
+    Block page
+{% endblock %}
+
+{% block content %}
+    <div id="Education">
+        <h1>Which class is this?</h1>
+        <h1>{{ name_of_class | upper }}</h1>
+        <h1>On what degree?</h1>
+        <h1>{{ degree | default('first') }}</h1>
+    </div>
+    <div id="Experience">
+        {% if admin==True %}
+            <h1>message to admins</h1>
+        {% endif %}
+        {{ super() }}
+    </div>
+    <div id="Languages">
+        <h2 id="headerLan">Languages</h2>
+        {% for language in Languages %}
+            <li>{{ language }}</li>
+        {% endfor %}
+    </div>
+{% endblock %}
+

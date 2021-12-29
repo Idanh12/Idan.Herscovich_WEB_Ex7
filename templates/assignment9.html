@@ -24,6 +24,9 @@
     <div id="Skills">
         {% if session %}
             Hello {{ nickname }}
+            <form method="GET" action="/logout">
+                    <input type="submit" name="Log Out" value="Log Out">
+            </form>
         {% else %}
         <form action="/assignment9" method="POST">
             <h2>Registration Form</h2>

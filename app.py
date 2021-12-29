@@ -28,7 +28,9 @@ def assignment9_func():
             if search == "":
                 res = users
             if session.get('login'):
-                return render_template('assignment9.html', res=res, nickname=session.get('nick_name'))
+                return render_template('assignment9.html',
+                                       res=res,
+                                       nickname=session.get('nick_name'))
             else:
                 return render_template('assignment9.html', res=res)
     if request.method == 'POST':
@@ -41,6 +43,11 @@ def assignment9_func():
     if session.get('login'):
         return render_template('assignment9.html',
                                nickname=session.get('nick_name'))
+    return render_template('assignment9.html')
+
+@app.route('/logout', methods=['GET', 'POST'])
+def logout_func():
+    session.clear()
     return render_template('assignment9.html')
 
 

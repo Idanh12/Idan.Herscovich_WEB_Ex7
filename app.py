@@ -1,6 +1,7 @@
 from flask import Flask, redirect, url_for, render_template, request, session
 from list import users
 
+
 app = Flask(__name__)
 
 app.secret_key = "abc"
@@ -50,6 +51,10 @@ def logout_func():
     session.clear()
     return render_template('assignment9.html')
 
+
+# assignment10
+from blueprints.assignment10.assignment10 import assignment10
+app.register_blueprint(assignment10)
 
 if __name__ == '__main__':
     app.run(debug=True)

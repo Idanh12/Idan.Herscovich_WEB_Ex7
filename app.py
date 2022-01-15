@@ -1,10 +1,12 @@
-from flask import Flask, redirect, url_for, render_template, request, session
+from flask import Flask, redirect, url_for, render_template, request, session, jsonify
 from list import users
-
+from interact_with_DB import *
+import requests
 
 app = Flask(__name__)
 
 app.secret_key = "abc"
+
 
 @app.route('/')
 def home_page():  # put application's code here
@@ -46,6 +48,7 @@ def assignment9_func():
                                nickname=session.get('nick_name'))
     return render_template('assignment9.html')
 
+
 @app.route('/logout', methods=['GET', 'POST'])
 def logout_func():
     session.clear()
@@ -55,6 +58,41 @@ def logout_func():
 # assignment10
 from blueprints.assignment10.assignment10 import assignment10
 app.register_blueprint(assignment10)
+
+# assignment11
+@app.route('/assignment11/users', methods=['GET', 'POST'])
+def assignment11_users_func():
+    query = 'select * from users;'
+    users = interact_db(query=query, query_type='fetch')
+    response = jsonify(users)
+    return response
+
+
+@app.route('/assignment11')
+def assignment11_init_func():  # put application's code here
+    return render_template('assignment11.html')
+
+
+@app.route('/assignment11/outer_source', methods=['GET', 'POST'])
+def assignment11_outer_source():
+    return render_template('assignment11.html')
+
+
+@app.route('/get_user', methods=['POST'])
+def assignment11_get_user():
+    id = request.form['id']
+    return render_template('assignment11.html', id=id)
+
+
+@app.route('/req_backend')
+def req_backend_func():
+    user=None
+    if "user" in request.args and request.args['user']!='':
+        user = request.args['user']
+    res = requests.get(f'https://reqres.in/api/users/{user}')
+    res = res.json()
+    return render_template('assignment11.html', user=res)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

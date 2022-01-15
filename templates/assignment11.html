@@ -1,0 +1,43 @@
+{% extends 'assignment8.html' %}
+
+{% block title %}
+    assignment11
+{% endblock %}
+
+{% block content %}
+
+    <div id="Education">
+        <form action="/req_backend">
+            <h1>Req Backend</h1>
+            Choose User id to Display: <input type="number" name="user" placeholder="User id">
+            <input type="submit" value="Display">
+        </form>
+    </div>
+    <div id="Experience">
+        {% if user %}
+            <img src="{{ user.data.avatar }}" alt="Profile Picture"><br>
+            {{user.data.first_name}} {{user.data.last_name}}<br>
+            <a href="mailto: {{user.data.email}}">Send Email</a>
+            <hr>
+        {% endif %}
+    </div>
+
+    <div id="Skills">
+        <form action="/get_user" method="post">
+        <h1>Req Frontend</h1>
+        Choose User id to Display: <input type="number" name="id" placeholder="User id">
+        <input type="submit" value="Display">
+    </form>
+
+    {% if id %}
+    <body onload="getUsers({{ id }})">
+    </body>
+    {% endif %}
+
+
+    <script src="/static/fetch_test.js"></script>
+
+
+
+    </div>
+{% endblock %}

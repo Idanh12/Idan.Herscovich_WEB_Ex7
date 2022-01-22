@@ -96,7 +96,7 @@ def req_backend_func():
 
 #Assignment 12:
 @app.route('/assignment12/restapi_users/<int:user_id>')
-@app.route('/assignment12/restapi_users', defaults={'user_id': 2})
+@app.route('/assignment12/restapi_users', defaults={'user_id': 1})
 def json_user_by_id(user_id):
     query = 'select * from users where id=%s' % user_id
     users = interact_db(query=query, query_type='fetch')

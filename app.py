@@ -94,5 +94,24 @@ def req_backend_func():
     return render_template('assignment11.html', user=res)
 
 
+#Assignment 12:
+@app.route('/assignment12/restapi_users/<int:user_id>')
+@app.route('/assignment12/restapi_users', defaults={'user_id': 2})
+def json_user_by_id(user_id):
+    query = 'select * from users where id=%s' % user_id
+    users = interact_db(query=query, query_type='fetch')
+    if len(users) == 0:
+        dict_to_print = {
+            'status': 'failed',
+            'message': 'user not found'
+        }
+    else:
+        dict_to_print = {
+            f'id': users[0].id,
+            'first name': users[0].first_name,
+            'last name': users[0].last_name,
+        }
+    return jsonify(dict_to_print)
+
 if __name__ == '__main__':
     app.run(debug=True)
